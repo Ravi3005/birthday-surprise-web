@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday, Alex ❤️</title>
+    <meta
+      name="description"
+      content="A special birthday surprise made with love."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Allura&family=Caveat:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Noto+Serif+Kannada:wght@300;400;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Background Particle Canvas -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Effect Canvas (confetti, fireworks) -->
+    <canvas id="effectCanvas"></canvas>
+
+    <!-- Music Toggle -->
+    <button id="musicBtn" aria-label="Toggle music">
+      <span class="music-icon">🎵</span>
+      <span class="music-label">Music</span>
+    </button>
+    <audio
+      id="bgMusic"
+      src="assets/birthday-song.mp3"
+      loop
+      preload="none"
+    ></audio>
+
+    <!-- ===================== SECTION 0: OPENING SCREEN ===================== -->
+    <section id="opening" class="fullscreen-section">
+      <!-- Balloons specifically for opening -->
+      <div class="balloons-container opening-balloons" aria-hidden="true">
+        <div class="balloon balloon-1"></div>
+        <div class="balloon balloon-2"></div>
+        <div class="balloon balloon-4"></div>
+        <div class="balloon balloon-5"></div>
+      </div>
+
+      <div class="opening-content">
+        <p class="opening-line-small">A little surprise for you...</p>
+        <h1 class="opening-line-greeting">
+          Hey Alex... <span class="opening-heart">❤️</span>
+        </h1>
+        <p class="opening-line-message">I made something special for you.</p>
+
+        <div class="elegant-divider">✦ ─── ♡ ─── ✦</div>
+
+        <button id="openSurpriseBtn" class="glow-btn">
+          <span>Open Your Surprise</span>
+          <span class="btn-sparkle">✨</span>
+        </button>
+
+        <p class="opening-line-footer">A little journey made just for you...</p>
+      </div>
+
+      <!-- Cinematic Transition Overlay -->
+      <div id="transitionOverlay" class="transition-overlay"></div>
+    </section>
+
+    <!-- ===================== MAIN CONTENT ===================== -->
+    <main id="mainContent" class="hidden">
+      <!-- ===================== SECTION 1: BIRTHDAY REVEAL ===================== -->
+      <section id="birthdayReveal" class="fullscreen-section reveal-section">
+        <!-- Hero background image -->
+        <div class="hero-bg-image" aria-hidden="true"></div>
+        <!-- Vignette overlay -->
+        <div class="reveal-vignette" aria-hidden="true"></div>
+        <!-- Central ambient glow -->
+        <div class="reveal-glow" aria-hidden="true"></div>
+
+        <!-- Elegant Balloons -->
+        <div class="hero-balloons" aria-hidden="true">
+          <div class="hero-balloon hb-1"></div>
+          <div class="hero-balloon hb-2"></div>
+          <div class="hero-balloon hb-3"></div>
+          <div class="hero-balloon hb-4"></div>
+          <div class="hero-balloon hb-5"></div>
+        </div>
+
+        <div class="reveal-content">
+          <!-- Title Stack -->
+          <div class="reveal-title-container">
+            <div class="title-happy">Happy</div>
+            <div class="title-birthday">22nd Birthday,</div>
+            <div class="title-name">
+              Alex!<span class="title-heart" aria-hidden="true"></span>
+            </div>
+          </div>
+
+          <!-- Ornamental Divider -->
+          <div class="ornamental-divider" aria-hidden="true">
+            <span class="od-line od-left"></span>
+            <span class="od-leaf od-leaf-left"></span>
+            <span class="od-heart">♡</span>
+            <span class="od-leaf od-leaf-right"></span>
+            <span class="od-line od-right"></span>
+          </div>
+
+          <!-- Subtitle -->
+          <div class="reveal-subtitle-container">
+            <p class="subtitle-main">Chapter 22 begins...</p>
+            <p class="subtitle-sub">
+              and the world is a little more beautiful<br />because
+              <span class="highlight-gold">you're in it.</span>
+            </p>
+          </div>
+
+          <!-- Make a Wish Button -->
+          <button id="makeWishBtn" class="wish-btn-premium">
+            <span class="wish-btn-text">Make a Wish</span>
+            <span class="wish-btn-sparkle">✨</span>
+          </button>
+        </div>
+
+        <!-- God Blessing Overlay -->
+        <div id="godBlessingOverlay" class="god-blessing-overlay">
+          <img src="assets/god-blessing.jpg" alt="God's Blessing" />
+        </div>
+      </section>
+
+      <div id="restOfContent" class="hidden">
+        <!-- ===================== SECTION 2: MEMORIES ===================== -->
+        <section id="memories" class="content-section">
+          <div class="section-header animate-in">
+            <h2 class="section-title">Your Little Collection of Memories</h2>
+          </div>
+
+          <div class="gallery-scroll" id="galleryScroll">
+            <!-- Photos populated by JS from config -->
+          </div>
+        </section>
+
+        <!-- ===================== SECTION 3: QUALITIES ===================== -->
+        <section id="qualities" class="content-section">
+          <div class="section-header animate-in">
+            <h2 class="section-title">Things I Love About You</h2>
+            <p class="section-subtitle">
+              Every little thing that makes you, you ✨
+            </p>
+          </div>
+
+          <div class="qualities-grid" id="qualitiesGrid">
+            <!-- Cards populated by JS from config -->
+          </div>
+        </section>
+
+        <!-- ===================== SECTION 4: QUIZ GAME ===================== -->
+        <section id="quiz" class="content-section">
+          <div class="section-header animate-in">
+            <h2 class="section-title">One Last Challenge</h2>
+            <p class="section-subtitle">🎮 How well do you know us?</p>
+          </div>
+
+          <div class="quiz-container animate-in">
+            <div class="quiz-progress">
+              <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+              </div>
+              <span class="progress-text" id="progressText"
+                >Question 1 of 3</span
+              >
+            </div>
+
+            <div class="quiz-card" id="quizCard">
+              <p class="quiz-question" id="quizQuestion"></p>
+              <div class="quiz-options" id="quizOptions"></div>
+            </div>
+
+            <!-- Quiz Complete -->
+            <div class="quiz-complete hidden" id="quizComplete">
+              <div class="unlock-icon">🎁</div>
+              <h3>You unlocked your final surprise!</h3>
+              <p>Keep scrolling to find it...</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================== SECTION 5: PERSONAL LETTER ===================== -->
+        <section id="letter" class="content-section">
+          <div class="section-header animate-in">
+            <h2 class="section-title">A Little Message From Me</h2>
+            <p class="section-subtitle">💌</p>
+          </div>
+
+          <div class="letter-wrapper animate-in">
+            <div class="letter-paper">
+              <div class="letter-content" id="letterContent"></div>
+              <span class="letter-cursor" id="letterCursor">|</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================== SECTION 6: FINAL GIFT ===================== -->
+        <section id="finalGift" class="fullscreen-section gift-section">
+          <div class="gift-intro" id="giftIntro">
+            <p class="gift-teaser">There's still one more thing...</p>
+            <span class="gift-teaser-emoji">🎁</span>
+
+            <div class="gift-box-wrapper">
+              <div class="gift-box" id="giftBox">
+                <div class="gift-lid">
+                  <div class="gift-bow"></div>
+                </div>
+                <div class="gift-body">
+                  <div class="gift-ribbon-v"></div>
+                  <div class="gift-ribbon-h"></div>
+                </div>
+              </div>
+            </div>
+
+            <button id="openGiftBtn" class="glow-btn gift-btn">
+              <span>Open Your Gift</span>
+            </button>
+          </div>
+
+          <!-- Gift Revealed -->
+          <div class="gift-revealed hidden" id="giftRevealed">
+            <h2 class="final-message">Happy Birthday, Alex ❤️</h2>
+            <p class="final-sub">
+              Here's to another year of beautiful memories.
+            </p>
+            <div class="final-photo-placeholder" id="finalPhoto">
+              <span>📸</span>
+              <p>Your special photo here</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================== FOOTER ===================== -->
+        <footer class="site-footer">
+          <p>Made with ❤️ and a little bit of code.</p>
+        </footer>
+      </div>
+    </main>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
