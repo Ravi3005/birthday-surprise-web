@@ -1,39 +1,36 @@
 # Birthday Surprise Web
 
-An interactive, animated birthday surprise website built with plain HTML, CSS, and JavaScript. It features a cinematic opening screen, personalized messages, memory gallery, quiz, handwritten-style letter, music toggle, and a final gift reveal.
+An interactive, animated birthday website built with HTML, CSS, JavaScript and GSAP. It is a customizable template that turns a birthday wish into a short, story-like web experience.
 
-## Overview
+**Live demo:** https://ravi3005.github.io/birthday-surprise-web/
 
-This project is a customizable birthday card/website designed to feel like a mini digital surprise experience. It is ideal for celebrating a loved one with a personalized message, favorite memories, and playful interactive moments.
+> This is a demo version. All names, photos and messages are placeholders.
 
 ## Features
 
-- Elegant opening surprise screen with animated transition
-- Birthday reveal section with layered text and effects
-- Memory gallery with custom photo captions
-- Personal qualities section highlighting what makes the person special
+- Animated opening screen with a smooth transition
+- Birthday reveal section with layered text effects
+- Photo gallery with captions
 - Interactive quiz game
-- Typing animation for a heartfelt letter
+- Typing animation for the letter
 - Final gift reveal with confetti and fireworks
-- Background music toggle
-- Responsive single-page design
+- Responsive single-page layout
 
 ## Tech Stack
 
-- HTML
-- CSS
-- JavaScript
+- HTML5
+- CSS3
+- JavaScript (ES6)
 - GSAP (animation library)
+- Deployed with GitHub Pages
 
 ## Project Structure
 
-```text
+```
 .
 ├── assets/
-│   ├── memory-01.jpg
-│   ├── memory-02.jpg
-│   ├── ...
-│   ├── birthday-song.mp3
+│   ├── memory-01.jpg ... memory-09.jpg
+│   ├── cake.png
 │   └── final-photo.jpg
 ├── index.html
 ├── style.css
@@ -44,63 +41,44 @@ This project is a customizable birthday card/website designed to feel like a min
 
 ## Customization
 
-Most of the content is configured in the `birthdayConfig` object inside `script.js`.
+Most content lives in the `birthdayConfig` object in `script.js`:
 
-You can personalize:
-
-- Name and nickname
-- Opening lines
+- Name and opening lines
 - Birthday message
-- Photo captions and gallery items
-- Personal qualities
+- Gallery photos and captions
 - Quiz questions and answers
 - Letter text
 - Final message and image
-- Music file path
-
-Example:
 
 ```javascript
 const birthdayConfig = {
   name: "Alex",
-  nickname: "ally",
-  openingLine1: "Hey alex.. ❤️",
+  openingLine1: "Hey Alex..",
   openingLine2: "I made something special for you.",
-  birthdayTitle: "Happy 22nd Birthday, ! 🎂❤️",
+  birthdayTitle: "Happy Birthday, Alex! 🎂",
   // ...
 };
 ```
 
-## Running the Project
+## Run Locally
 
-Because this is a static front-end project, you can run it in either of these ways:
+Option 1: open `index.html` in a browser.
 
-### Option 1: Open directly in a browser
-
-- Open `index.html` in your browser.
-
-### Option 2: Use a local web server
+Option 2: start a local server.
 
 ```bash
 python -m http.server 8000
 ```
 
-Then visit:
+Then visit `http://localhost:8000`.
 
-```text
-http://localhost:8000
-```
+## What I Learned
 
-## Notes
+- Building a responsive layout without a framework
+- DOM manipulation and event handling in vanilla JavaScript
+- Sequencing animations with GSAP
+- Deploying a static site with GitHub Pages
 
-- The app expects image and music files in the `assets/` folder.
-- Some browsers block autoplay audio until the user interacts with the page.
-- This project is designed primarily for local use or simple static hosting.
+## Author
 
-## License
-
-This project is provided as-is for personal and educational use.
-
-## Credits
-
-The design, animations, and experience were built for a personalized birthday surprise experience.
+Ravi Naik, [GitHub](https://github.com/Ravi3005)
